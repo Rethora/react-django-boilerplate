@@ -1,7 +1,7 @@
-import { User } from "../../services/auth/types";
+import { User } from '../../services/auth/types'
 
 export interface AuthState {
-  user: User | null;
-  token: string | null;
-  refresh: string | null;
+  user: User | null
+  token: string | null
+  refresh: string | null
 }

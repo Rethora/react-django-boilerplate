@@ -1,27 +1,27 @@
-import { Navigate } from "react-router-dom";
-import { useAppSelector } from "../app/hooks";
-import { useLoginMutation } from "../services/auth/api";
-import { useCallback } from "react";
+import { Navigate } from 'react-router-dom'
+import { useAppSelector } from '../app/hooks'
+import { useLoginMutation } from '../services/auth/api'
+import { useCallback } from 'react'
 
 const Login = () => {
-  const [login] = useLoginMutation();
-  const { user } = useAppSelector((state) => state.auth);
+  const [login] = useLoginMutation()
+  const { user } = useAppSelector((state) => state.auth)
 
   const onSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      const formData = new FormData(e.currentTarget);
+      e.preventDefault()
+      const formData = new FormData(e.currentTarget)
       const credentials = {
-        username: formData.get("username") as string,
-        password: formData.get("password") as string,
-      };
-      login(credentials);
+        username: formData.get('username') as string,
+        password: formData.get('password') as string,
+      }
+      login(credentials)
     },
     [login]
-  );
+  )
 
   if (user) {
-    return <Navigate to="/protected" />;
+    return <Navigate to="/protected" />
   }
 
   return (
@@ -34,7 +34,7 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

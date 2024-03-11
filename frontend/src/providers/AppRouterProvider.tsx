@@ -1,25 +1,25 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RootLayout from "../layouts/RootLayout";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Protected from "../pages/Protected";
-import ProtectedRoute from "../components/ProtectedRoute";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import RootLayout from '../layouts/RootLayout'
+import Home from '../pages/Home'
+import Login from '../pages/Login'
+import Protected from '../pages/Protected'
+import ProtectedRoute from '../components/ProtectedRoute'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <RootLayout />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <Home />,
       },
       {
-        path: "login",
+        path: 'login',
         element: <Login />,
       },
       {
-        path: "protected",
+        path: 'protected',
         element: (
           <ProtectedRoute>
             <Protected />
@@ -28,8 +28,8 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
 
-const AppRouterProvider = () => <RouterProvider router={router} />;
+const AppRouterProvider = () => <RouterProvider router={router} />
 
-export default AppRouterProvider;
+export default AppRouterProvider
