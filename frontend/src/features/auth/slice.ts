@@ -30,6 +30,13 @@ export const authSlice = createSlice({
       localStorage.removeItem("access");
       localStorage.removeItem("refresh");
     });
+    builder.addMatcher(authApi.endpoints.logout.matchRejected, (state) => {
+      state.user = null;
+      state.token = null;
+      state.refresh = null;
+      localStorage.removeItem("access");
+      localStorage.removeItem("refresh");
+    });
     builder.addMatcher(
       authApi.endpoints.verifyToken.matchFulfilled,
       (state, action) => {
@@ -49,9 +56,7 @@ export const authSlice = createSlice({
       authApi.endpoints.refreshToken.matchFulfilled,
       (state, action) => {
         state.token = action.payload.access;
-        state.refresh = action.payload.refresh;
         localStorage.setItem("access", action.payload.access);
-        localStorage.setItem("refresh", action.payload.refresh);
       }
     );
   },
