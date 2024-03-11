@@ -26,7 +26,7 @@ export const authApi = createApi({
       query: () => ({
         url: '/token/blacklist',
         method: 'POST',
-        body: { token: localStorage.getItem('refresh') },
+        body: { refresh: localStorage.getItem('refresh') },
       }),
     }),
     verifyToken: build.query<{ user: User }, void>({
