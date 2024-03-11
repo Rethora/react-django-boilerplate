@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  backend:
+    env_file:
+      - .env
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    restart: always
+    entrypoint: /entrypoint.sh
+    volumes:
+      - staticfiles:/backend/staticfiles
+  nginx:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    volumes:
+      - staticfiles:/staticfiles
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    links:
+      - backend
+  db:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+volumes:
+  staticfiles:

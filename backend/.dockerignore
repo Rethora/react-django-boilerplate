@@ -1,0 +1,5 @@
+.dockerignore
+db.sqlite3
+.gitignore
+Dockerfile
+staticfiles/*
