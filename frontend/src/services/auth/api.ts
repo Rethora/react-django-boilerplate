@@ -44,7 +44,7 @@ export const authApi = createApi({
       }),
     }),
     testAuthenticated: build.query<{ message: string }, void>({
-      query: () => '/test-authenticated',
+      query: () => '/test-authenticated/',
     }),
   }),
 })
