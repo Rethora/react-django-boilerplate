@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { useAppSelector } from '../app/hooks'
+import { useAppSelector } from 'app/hooks'
 import { Navigate } from 'react-router-dom'
 
 interface ProtectedRouteProps {

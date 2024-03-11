@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit/react'
-import { authApi } from '../../services/auth/api'
-import { AuthState } from './types'
+import { authApi } from 'services/auth/api'
+import { AuthState } from 'features/auth/types'
 
 const initialState: AuthState = {
   user: null,

@@ -1,7 +1,4 @@
-import {
-  useLogoutMutation,
-  useTestAuthenticatedQuery,
-} from '../services/auth/api'
+import { useLogoutMutation, useTestAuthenticatedQuery } from 'services/auth/api'
 
 const Protected = () => {
   const [logout] = useLogoutMutation()

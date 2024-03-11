@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom'
-import { useAppSelector } from '../app/hooks'
-import { useLoginMutation } from '../services/auth/api'
+import { useAppSelector } from 'app/hooks'
+import { useLoginMutation } from 'services/auth/api'
 import { useCallback } from 'react'
 
 const Login = () => {

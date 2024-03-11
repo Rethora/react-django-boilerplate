@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import RootLayout from '../layouts/RootLayout'
-import Home from '../pages/Home'
-import Login from '../pages/Login'
-import Protected from '../pages/Protected'
-import ProtectedRoute from '../components/ProtectedRoute'
+import RootLayout from 'layouts/RootLayout'
+import Home from 'pages/Home'
+import Login from 'pages/Login'
+import Protected from 'pages/Protected'
+import ProtectedRoute from 'components/ProtectedRoute'
 
 const router = createBrowserRouter([
   {

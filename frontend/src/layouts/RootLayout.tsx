@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import { useRefreshTokenQuery, useVerifyTokenQuery } from '../services/auth/api'
+import { useRefreshTokenQuery, useVerifyTokenQuery } from 'services/auth/api'
 import { useEffect } from 'react'
 
 const RootLayout = () => {
@@ -15,12 +15,9 @@ const RootLayout = () => {
 
   // * refresh token every 5 minutes
   useEffect(() => {
-    setInterval(
-      () => {
-        refetch()
-      },
-      5 * 60 * 1000
-    )
+    setInterval(() => {
+      refetch()
+    }, 5 * 60 * 1000)
   }, [refetch])
 
   if (verifyLoading || refreshLoading) {
