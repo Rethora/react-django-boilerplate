@@ -16,7 +16,9 @@ const RootLayout = () => {
   // * refresh token every 5 minutes
   useEffect(() => {
     setInterval(() => {
-      refetch()
+      if (localStorage.getItem('refresh')) {
+        refetch()
+      }
     }, 5 * 60 * 1000)
   }, [refetch])
 
